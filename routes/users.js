@@ -26,7 +26,7 @@ router.post('/login', function(req, res, next) {
             if(result.length > 0) {
                 if(result[0].pwd == pwd) {
                   console.log("로그인 성공");
-                  res.redirect("http://localhost:3000/welcome");
+                  res.send({result:'success'});
                 } else {
                   console.log("비번이 일치하지 않습니다. 다시 로그인하세요~");
                   res.send({msg:"fail"});

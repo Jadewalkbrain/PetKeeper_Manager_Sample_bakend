@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var memberRouter = require('./routes/member');
 var testRouter = require('./routes/test');
+var deviceRouter = require('./routes/device');
 var app = express();
 
 app.use(logger('dev'));
@@ -22,4 +23,6 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/member', memberRouter);
 app.use('/test', testRouter);
+app.use('/device', deviceRouter);
+
 module.exports = app;
