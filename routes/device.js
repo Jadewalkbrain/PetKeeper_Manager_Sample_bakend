@@ -19,18 +19,17 @@ var conn = mysql.createConnection({
 
 router.post('/data', function(req, res, next) {
   var device = req.body.device
-  var startDate = req.body.startDate
-  var endDate = req.body.endDate
-    console.log(req.body.device, req.body.startDate, req.body.endDate)
-  //db정보(x)
-//   conn.connect(function(err) {
-//     if(err){
-//       console.log('err!')
-//     }
-//     conn.query(`select * from (SELECT * FROM petkeeper WHERE device=?) time between ? and ?`,device, startDate,endDate,function (err, result, fields) {
-//        res.send(result)
-//     })
-//   })
+  // var startDate = req.body.startDate
+  // var endDate = req.body.endDate
+  // console.log(req.body.device, req.body.startDate, req.body.endDate)
+  conn.connect(function(err) {
+    if(err){
+      console.log('err!')
+    }
+    conn.query(`SELECT * FROM petkeeper WHERE device=?`,device,function (err, result, fields) {
+       res.send(result)
+    })
+  })
 });
 
 module.exports = router;
